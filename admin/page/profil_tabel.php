@@ -55,15 +55,7 @@
           </tr>
           <?php $n++;} ?>
         </tbody>
-        <tfoot>
-          <tr>
-            <th>NO</th>
-            <th>JUDUL</th>
-            <th>KONTEN</th>
-            <th>GAMBAR</th>
-            <th>ACTION</th>
-         </tr>
-       </tfoot>
+      
      </table>
    </div><!-- /.box-body -->
  </div><!-- /.box -->

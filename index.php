@@ -22,7 +22,7 @@ include "admin/function/function.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/icon" href="img/wpf-favicon.png"/>
+    <link rel="shortcut icon" type="image/icon" href="img/wpf-favicon.ico"/>
 
     <!-- CSS
     ================================================== -->       
@@ -99,9 +99,9 @@ include "admin/function/function.php";
                     <?php } ?>               
                   </ul>
                 </li>
-                <li><a href="index.php?page=pengumuman">Program Kerja</a></li>
+                <li><a href="index.php?page=programkerja">Program Kerja</a></li>
                 <li><a href="index.php?page=keanggotaan">Keanggotaan</a></li>
-                <li><a href="index.php?page=galeri">Gallery</a></li>
+                <li><a href="index.php?page=galeri">Galeri</a></li>
                 <li><a href="index.php?page=berita">Berita</a></li>
                 <!-- <li><a href="index.php?page=kontak">Contact</a></li> -->
               </ul>           

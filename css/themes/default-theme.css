@@ -11,13 +11,13 @@ Author URI : http://www.wpfreeware.com/
   color: #78ADC9;
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-    color: #78ADC9;
+    color: #0A0A0A;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
    color: #78ADC9;
 }
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
-  color: #78ADC9 !important;  
+  color: #060606 !important;  
 }
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #78ADC9;

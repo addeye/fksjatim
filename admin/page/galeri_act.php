@@ -1,5 +1,6 @@
 <?php
 include "../koneksi/koneksi.php"; 
+include "../function/function.php";
 session_start(); 
 if(isset($_GET['act'])) {
 	$act = $_GET['act'];
@@ -41,21 +42,23 @@ if($_FILES['foto']['name']!=NULL){
  if( in_array( $ext, $ekstensi ) ) {
 
         //maks ukuran gambar 1000kb
- 	if( $_FILES['foto']['size'] < 500000 ) {
+ 	// if( $_FILES['foto']['size'] < 500000 ) {
 
- 		$filename    = "foto-" .$album."-".time()."." .$ext;
+ 		$filename    = "foto-" .$album."-".rand(11111,99999)."." .$ext;
 
- 		if ( move_uploaded_file( $_FILES['foto']['tmp_name'], $dir_foto . $filename ) ) {
+ 		$status = UploadCompress($filename,'foto',$dir_foto,30);
+
+ 		if ( $status ) {
  			// unlink($lokasifile);
  			mysql_query("INSERT INTO `tabel_galeri`(`id_galeri`, `album`, `judul_foto`, `foto`, `deskripsi`) VALUES (NULL,'$album','$judul_foto','$filename','$deskripsi')");
  			header('Location:../?page=galeri_tabel&done');
  		} else {
  			echo "Gagal";
  		}
- 	} else {
- 		// echo "logfoto";
- 		header('Location:../?page=galeri_tabel&logfoto');
- 	}
+ 	// } else {
+ 	// 	// echo "logfoto";
+ 	// 	header('Location:../?page=galeri_tabel&logfoto');
+ 	// }
  } else {
  	// echo 'format';
  	header('Location:../?page=galeri_tabel&format');
@@ -75,7 +78,7 @@ function update(){
 	echo $judul_foto = $_POST['judul_foto'];
 	echo $deskripsi = $_POST['deskripsi'];
 
-	$que = mysql_query("select * from tabel_galeri");
+	$que = mysql_query("select * from tabel_galeri where id_galeri='$id_galeri'");
 	$d=mysql_fetch_array($que);
 	$lokasifile = '../images/'.$d['foto'];
 
@@ -89,22 +92,22 @@ if($_FILES['foto']['name']!=NULL){
  if( in_array( $ext, $ekstensi ) ) {
 
         //maks ukuran gambar 500kb
- 	if( $_FILES['foto']['size'] < 500000 ) {
+ 	// if( $_FILES['foto']['size'] < 500000 ) {
 
- 		$filename    = "foto-" .$album."-".time()."." .$ext;
+ 		$filename    = "foto-" .$album."-".rand(11111,99999)."." .$ext;
  		unlink($lokasifile);
 
- 		if ( move_uploaded_file( $_FILES['foto']['tmp_name'], $dir_foto . $filename ) ) {
+ 		if ( UploadCompress($filename,'foto',$dir_foto,30) ) {
  			
  			mysql_query("UPDATE `tabel_galeri` SET `album`='$album',`judul_foto`='$judul_foto',`foto`='$filename',`deskripsi`='$deskripsi' WHERE `id_galeri`='$id_galeri' ");
  			header('Location:../?page=galeri_tabel&up');
  		} else {
  			echo "Gagal";
  		}
- 	} else {
- 		// echo "logfoto";
- 		header('Location:../?page=galeri_tabel&logfoto');
- 	}
+ 	// } else {
+ 	// 	// echo "logfoto";
+ 	// 	header('Location:../?page=galeri_tabel&logfoto');
+ 	// }
  } else {
  	// echo 'format';
  	header('Location:../?page=galeri_tabel&format');

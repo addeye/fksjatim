@@ -19,14 +19,15 @@
    <div class="col-md-2"></div>
    <div class="col-lg-8 col-md-8 col-sm-8">
      <div class="contact_form wow fadeInLeft">
-      <form class="submitphoto_form" method="post" action="">
+      <form class="submitphoto_form" method="post" action="page/submit_data.php">
         <div class="form-group">
           <div class="col-md-3"><label>Nama Koperasi</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>                
+          <div class="col-md-9">
+          <input type="text" name="nama_koperasi" placeholder="Nama Koperasi" class="wp-form-control form-control wpcf5">
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>No /Tgl Badan Hukum</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="nbh" class="wp-form-control form-control wpcf3"></div>
         </div>
         <div class="form-group">
           <div class="col-md-12"><label>Alamat</label></div>          
@@ -34,34 +35,34 @@
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Jalan</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="jalan" class="wp-form-control form-control wpcf4"></div>
         </div> 
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Kel/Desa</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="kelurahan" class="wp-form-control form-control wpcf3"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Kec</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="kecamatan" class="wp-form-control form-control wpcf3"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Kab/Kota</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="kabupaten" class="wp-form-control form-control wpcf3"></div>
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>No Telepon</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="no_telp" class="wp-form-control form-control wpcf3"></div>
         </div> 
         <div class="form-group">
           <div class="col-md-3"><label>Email</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="email" class="wp-form-control form-control wpcf4"></div>
         </div> 
         <div class="form-group">
           <div class="col-md-3"><label>Website</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="alamat_website" class="wp-form-control form-control wpcf3"></div>
         </div>
         <div class="form-group">
           <div class="col-md-12"><label>Pengurus</label></div>          
@@ -69,17 +70,17 @@
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Ketua</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="ket_pengurus" class="wp-form-control form-control wpcf5"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Bendahara</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="bend_pengurus" class="wp-form-control form-control wpcf5"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Sekretaris</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="sek_pengurus" class="wp-form-control form-control wpcf5"></div>
         </div>
         <div class="form-group">
           <div class="col-md-12"><label>Pengawas</label></div>          
@@ -87,39 +88,39 @@
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Ketua</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="ket_pengawas" class="wp-form-control form-control wpcf5"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
-          <div class="col-md-2">Anggota</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-2">Anggota 1</div>
+          <div class="col-md-9"><input type="text" name="angg1_pengawas" class="wp-form-control form-control wpcf5"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
-          <div class="col-md-2">Anggota</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-2">Anggota 2</div>
+          <div class="col-md-9"><input type="text" name="angg2_pengawas" class="wp-form-control form-control wpcf5"></div>
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>Jumlah Anggota</label></div>
-          <div class="col-md-4">Laki : <input type="text" class="wp-form-control form-control"></div>
-          <div class="col-md-4">Perempuan : <input type="text" class="wp-form-control form-control"></div> 
+          <div class="col-md-4"> <input type="text" name="jml_angg_L" class="wp-form-control form-control wpcf1"> Laki</div>
+          <div class="col-md-4"><input type="text" name="jml_angg_P" class="wp-form-control form-control wpcf1"> Perempuan</div> 
           <div class="col-md-1"></div>         
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>Jumlah Calon Anggota</label></div>
-          <div class="col-md-4">Laki : <input type="text" class="wp-form-control form-control"></div>
-          <div class="col-md-4">Perempuan : <input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-4">Laki <input type="text" name="jml_cangg_L" class="wp-form-control form-control wpcf1"></div>
+          <div class="col-md-4">Perempuan <input type="text" name="jml_cangg_P" class="wp-form-control form-control wpcf1"></div>
           <div class="col-md-1"></div>
         </div>
 
         <div class="form-group">
           <div class="col-md-3"><label>Manager</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>                
+          <div class="col-md-9"><input type="text" name="manager" class="wp-form-control form-control wpcf5"></div>                
         </div>
 
         <div class="form-group">
           <div class="col-md-3"><label>Karyawan</label></div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>                
+          <div class="col-md-9">Orang <input type="text" name="karyawan" class="wp-form-control form-control wpcf1"></div>                
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>Keuangan</label></div>
@@ -134,32 +135,32 @@
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Simpanan Diterima</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="simpan_diterima" class="wp-form-control form-control"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Modal Pinjaman</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="modal_pinjaman" class="wp-form-control form-control"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Modal Sendiri</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="modal_sendiri" class="wp-form-control form-control"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Modal Penyertaan</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="modal_penyertaan" class="wp-form-control form-control"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Total Asset</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="total_aset" class="wp-form-control form-control"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Pembiayaan Diberikan</div>
-          <div class="col-md-9"><input type="text" class="wp-form-control form-control "></div>
+          <div class="col-md-9"><input type="text" name="biaya_diberikan" class="wp-form-control form-control "></div>
         </div>
 
         <input type="submit" name="send" value="Submit" class="wpcf7-submit form-control">

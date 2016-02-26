@@ -60,7 +60,7 @@ a:focus{
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Varela', sans-serif;	
+	font-family: initial;	
 }
 
 h2 {
@@ -152,7 +152,7 @@ img{
   color: #fff;
 }
 .navbar-default {
-  background-color: #98CE87;
+  background-color: #78ADC9;
   border-color: transparent;
 }
 #navbar{overflow-x: hidden;}
@@ -171,10 +171,10 @@ img{
   background-color: transparent;
 }
 .navbar-nav > li > .dropdown-menu {
-  background-color: #48575a; 
+  background-color: #499DCA; 
 }
 .navbar-nav > li > .dropdown-menu:before { 
-  border-bottom: 15px solid #48575a; 
+  border-bottom: 15px solid #499DCA; 
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   content: "";
@@ -975,7 +975,7 @@ div[data-dimension] {
   display: inline;
   float: left;
   height: 300px;
-  margin-top: 77px;
+  margin-top: 60px;
   padding: 118px 0;
   text-align: center;
   width: 100%;
@@ -1533,6 +1533,40 @@ div[data-dimension] {
 .wpcf7-email{
   height: 45px;
 }
+
+.wpcf1{
+  width: 50px;
+}
+.wpcf2{
+  width: 100px;
+}
+.wpcf3{
+  width: 200px;
+}
+.wpcf4{
+  width: 300px;
+}
+.wpcf5{
+  width: 400px;
+}
+.wpcf6{
+  width: 500px;
+}
+.wpcf7{
+  width: 600px;
+}
+.wpcf8{
+  width: 700px;
+}
+.wpcf9{
+  width: 800px;
+}
+
+.wpcf10{
+  width: 900px;
+}
+
+
 .wpcf7-textarea {
   height: 200px;
   padding: 15px;

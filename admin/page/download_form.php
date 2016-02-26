@@ -1,17 +1,17 @@
 <?php
 if(isset($_GET['edit'])){
-$que = mysql_query("select * from tabel_profil where id_profil = '$_GET[id]' ");
+$que = mysql_query("select * from tabel_download where id_download = '$_GET[id]' ");
 $d = mysql_fetch_array($que);
-$id_profil=$d['id_profil'];
+$id_download=$d['id_download'];
 $judul = $d['judul'];
-$isi = $d['isi'];
-$gambar = $d['gambar'];
+$diskripsi = $d['diskripsi'];
+$file = $d['file'];
 $act = "update";
 } else {
-  $id_profil = "";
-  $judul = "";
-$isi = "";
-$gambar = "";
+$id_download='';
+$judul = '';
+$diskripsi = '';
+$file = '';
 $act = "insert";
 }
 
@@ -26,30 +26,24 @@ $act = "insert";
           <h3 class="box-title">TAMBAH FILE DONWLOAD</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="page/profil_act.php" method="post" enctype="multipart/form-data">
+        <form role="form" action="page/download_act.php" method="post" enctype="multipart/form-data">
           <input type="hidden" name="act" value="<?=$act?>">
-          <input type="hidden" name="id_profil" value="<?=$id_profil?>">
+          <input type="hidden" name="id_download" value="<?=$id_download?>">
           <div class="box-body">
            <div class="form-group">      
-            <input type="text" class="form-control" value="<?=$judul?>" name="judul" placeholder="Judul Konten" data-toggle="tooltip" data-placement="bottom" title="Judul" required>
+            <input type="text" class="form-control" value="<?=$judul?>" name="judul" placeholder="Judul Dokumen" data-toggle="tooltip" data-placement="bottom" title="Judul" required>
           </div>
           <div class="form-group">
-            <textarea id="editor1" name="isi" rows="10" cols="80"><?=$isi?>                          
-            </textarea>     
+            <textarea class="form-control" name="diskripsi" placeholder="Diskripsi"><?=$diskripsi?></textarea>  
           </div>
           <div class="form-group">            
-            <img id="img" width="200" src="foto/<?=$gambar?>" class="img-responsive img-thumbnail">
-            
-            <input type="hidden" id="img_ket" name="img_ket" value="">
-            <button type="button" id="delete_img" class="btn btn-success btn-xs">Delete</button>
-            <button type="button" id="cancel_img" class="btn btn-warning btn-xs">Cancel</button>
-            <input type="file" name="gambar" id="exampleInputFile">
-            <p class="help-block">*kosongkan jika tidak perlu/diganti max 500kb</p>
+            <input type="file" name="dokumen" id="exampleInputFile" required>
+            <p class="help-block">*Pilih file yang ingin di upload (.PDF)</p>
           </div>
         </div><!-- /.box-body -->
 
         <div class="modal-footer">
-          <button type="button" onClick="location.href='?page=profil_tabel'" class="btn btn-default">BATAL</button>
+          <button type="button" onClick="location.href='?page=download_tabel'" class="btn btn-default">BATAL</button>
           <button type="submit" name="update" class="btn btn-primary">TAMBAH</button>
         </div>
       </form>

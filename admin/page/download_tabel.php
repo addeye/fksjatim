@@ -46,12 +46,11 @@
            <tr>
             <td><?=$n?></td>
             <td><?=$d['judul']?></td>
-            <td><?=substr($d['diskripsi'], 0,500)?>...</td>
-            <td><img width="100" src="foto/<?=$d['gambar']?>" class="img-responsive img-thumbnail" alt="User Image" /></td>
-            <td><?=$d['file']?></td>
+            <td><?=substr($d['diskripsi'], 0,500)?>...</td>            
+            <td><a target="_blank" href="files/<?=$d['file']?>"> <i class="fa fa-file"></i> <?=$d['file']?></a></td>
             <td>              
-              <a href="index.php?page=profil_form&edit&id=<?=$d['id_profil']?>" class="btn btn-success btn-sm btn-edit" data-toggle="tooltip" data-placement="top" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
-              <a href="page/profil_act.php?act=del&id=<?=$d['id_profil']?>" class="btn btn-danger btn-sm cara2" data-toggle="tooltip" data-placement="top" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
+              <a href="index.php?page=download_form&edit&id=<?=$d['id_download']?>" class="btn btn-success btn-sm btn-edit" data-toggle="tooltip" data-placement="top" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a href="page/download_act.php?act=del&id=<?=$d['id_download']?>" class="btn btn-danger btn-sm cara2" data-toggle="tooltip" data-placement="top" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
             </td>
           </tr>
           <?php $n++;} ?>

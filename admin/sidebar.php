@@ -15,7 +15,7 @@
         <div class="pull-left info">
             <p></p>
 
-            <a href="#"><i class="fa fa-circle text-success"></i> SUPER ADMIN</a>
+            <a href="#"><i class="fa fa-circle text-success"></i> <?=$_SESSION['nama_pengguna']?></a>
         </div>
     </div>
     <!-- search form -->
@@ -59,12 +59,15 @@
                 <li><a href="?page=galeri_tabel"><i class="fa fa-angle-double-right"></i> Galeri</a></li>
                 <li><a href="?page=komentar_tabel"><i class="fa fa-angle-double-right"></i> Komentar</a></li>
                 <li><a href="?page=download_tabel"><i class="fa fa-angle-double-right"></i> Download</a></li>
+                <li><a href="?page=download_tabel"><i class="fa fa-angle-double-right"></i> Keanggotaan</a></li>
             </ul>
         </li>
+        <?php if($_SESSION['level']==1) { ?>
         <li>
             <a href="?page=pengguna_tabel">
                 <i class="fa fa-indent"></i> <span>MANAJEMEN USER</span>
             </a>
         </li>
+        <?php } ?>
     </ul>
 </section>

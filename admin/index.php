@@ -68,7 +68,7 @@ if (empty($_SESSION['nama_pengguna']) and empty($_SESSION['level'])) {
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-user"></i>
-                            <span>Administrator<i class="caret"></i></span>
+                            <span><?=$_SESSION['nama_level']?><i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-footer">                                    
@@ -96,7 +96,7 @@ if (empty($_SESSION['nama_pengguna']) and empty($_SESSION['level'])) {
                 <section class="content-header">
                     <h1>
                         Halaman Utama
-                        <small>Admin</small>
+                        <small><?=$_SESSION['nama_level']?></small>
                         <?php ?>
                     </h1>
                     <ol class="breadcrumb">

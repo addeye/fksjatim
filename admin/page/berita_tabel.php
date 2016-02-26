@@ -68,20 +68,7 @@
             </td>
           </tr>
           <?php $n++;} ?>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>NO</th>
-            <th>JUDUL</th>
-            <th>BERITA</th>
-            <th>PENULIS</th>
-            <th>POST</th>
-            <th>KATEGORI</th>
-            <th>HEADLINE</th>
-            <th>GAMBAR</th>
-            <th>ACTION</th>
-         </tr>
-       </tfoot>
+        </tbody>        
      </table>
    </div><!-- /.box-body -->
  </div><!-- /.box -->

@@ -56,17 +56,7 @@
             </td>
           </tr>
           <?php $n++;} ?>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>NO</th>
-            <th>JUDUL PENGUMUMAN</th>
-            <th>PENULIS</th>
-            <th>TANGGAL POST</th>
-            <th>KETERANGAN</th>
-            <th>ACTION</th>
-         </tr>
-       </tfoot>
+        </tbody>          
      </table>
    </div><!-- /.box-body -->
  </div><!-- /.box -->

@@ -1,5 +1,6 @@
 <?php
 include "../koneksi/koneksi.php"; 
+include "../function/function.php"; 
 if(isset($_GET['act'])) {
 	$act = $_GET['act'];
 } else{
@@ -39,21 +40,21 @@ if($_FILES['gambar']['name']!=NULL){
  if( in_array( $ext, $ekstensi ) ) {
 
         //maks ukuran gambar 1000kb
- 	if( $_FILES['gambar']['size'] < 1024288 ) {
+ 	// if( $_FILES['gambar']['size'] < 1024288 ) {
 
- 		$filename    = "profil-" .$judul."-".time()."." .$ext;
+ 		$filename    = "profil-" .$judul."-".rand(11111,99999)."." .$ext;
 
- 		if ( move_uploaded_file( $_FILES['gambar']['tmp_name'], $dir_foto . $filename ) ) {
+ 		if ( UploadCompress($filename,'gambar',$dir_foto,30) ) {
  			// unlink($lokasifile);
  			mysql_query("INSERT INTO `tabel_profil`(`id_profil`, `judul`, `isi`, `gambar`) VALUES (NULL,'$judul','$isi','$filename')");
  			header('Location:../?page=profil_tabel&done');
  		} else {
  			echo "Gagal";
  		}
- 	} else {
- 		// echo "logfoto";
- 		header('Location:../?page=profil_tabel&logfoto');
- 	}
+ 	// } else {
+ 	// 	// echo "logfoto";
+ 	// 	header('Location:../?page=profil_tabel&logfoto');
+ 	// }
  } else {
  	// echo 'format';
  	header('Location:../?page=profil_tabel&format');
@@ -86,22 +87,22 @@ if($_FILES['gambar']['name']!=NULL){
  if( in_array( $ext, $ekstensi ) ) {
 
         //maks ukuran gambar 1000kb
- 	if( $_FILES['gambar']['size'] < 5024288 ) {
+ 	// if( $_FILES['gambar']['size'] < 5024288 ) {
 
  		$filename    = "profil-" .$judul."-".rand(11111,99999)."." .$ext;
  		unlink($lokasifile);
 
- 		if ( move_uploaded_file( $_FILES['gambar']['tmp_name'], $dir_foto . $filename ) ) {
+ 		if ( UploadCompress($filename,'gambar',$dir_foto,30) ) {
  			
  			mysql_query("UPDATE `tabel_profil` SET `judul`='$judul',`isi`='$isi',`gambar`='$filename' WHERE `id_profil`='$id_profil' ");
  			header('Location:../?page=profil_tabel&up');
  		} else {
  			echo "Gagal";
  		}
- 	} else {
- 		// echo "logfoto";
- 		header('Location:../?page=profil_tabel&logfoto');
- 	}
+ 	// } else {
+ 	// 	// echo "logfoto";
+ 	// 	header('Location:../?page=profil_tabel&logfoto');
+ 	// }
  } else {
  	// echo 'format';
  	header('Location:../?page=profil_tabel&format');
@@ -124,6 +125,10 @@ if($_FILES['gambar']['name']!=NULL){
 
 function del(){
 	$id = $_GET['id'];
+	$que = mysql_query("select * from tabel_profil WHERE id_profil = '$id' ");
+	$d = mysql_fetch_array($que);
+	$lokasifile = '../foto/'.$d['gambar'];
+	unlink($lokasifile);
 	mysql_query("DELETE FROM `tabel_profil` WHERE `id_profil`='$id' ");
 	// echo "lihat lah";
 	header('Location:../?page=profil_tabel');

@@ -1,5 +1,7 @@
 <?php
 include "../koneksi/koneksi.php"; 
+include "../function/function.php"; 
+
 session_start(); 
 if(isset($_GET['act'])) {
 	$act = $_GET['act'];
@@ -49,29 +51,29 @@ function insert()
  	if( in_array( $ext, $ekstensi ) ) {
 
         //maks ukuran gambar 1000kb
- 		if( $_FILES['gambar']['size'] < 1024288 ) {
+ 		// if( $_FILES['gambar']['size'] < 1024288 ) {
 
- 			$filename    = "gambar-" .$judul."-".time()."." .$ext;
+ 			$filename    = "gambar-" .$judul."-".rand(11111,99999)."." .$ext;
 
- 			if ( move_uploaded_file( $_FILES['gambar']['tmp_name'], $dir_foto . $filename ) ) {
+ 			if (UploadCompress($filename,'gambar',$dir_foto,30)) {
  			// unlink($lokasifile);
  				mysql_query("INSERT INTO `tabel_berita`(`id_berita`, `judul`, `berita`, `penulis`, `kategori`, `tanggalpost`, `headline`, `gambar`) VALUES (NULL,'$judul','$berita','$penulis','$kategori','$tanggalpost','N','$filename')");
  				header('Location:../?page=berita_tabel&done');
  			} else {
  				echo "Gagal";
  			}
- 		} else {
- 		// echo "logfoto";
- 			header('Location:../?page=berita_tabel&logfoto');
- 		}
+ 		// } else {
+ 		// // echo "logfoto";
+ 		// 	header('Location:../?page=berita_tabel&logfoto');
+ 		// }
  	} else {
  	// echo 'format';
  		header('Location:../?page=berita_tabel&format');
  	} 
  }
  else {
- 	mysql_query("INSERT INTO `tabel_profil`(`id_profil`, `judul`, `isi`, `gambar`) VALUES (NULL,'$judul','$isi','')");
- 	header('Location:../?page=profil_tabel&done');
+ 	mysql_query("INSERT INTO `tabel_berita`(`id_berita`, `judul`, `berita`, `penulis`, `kategori`, `tanggalpost`, `headline`, `gambar`) VALUES (NULL,'$judul','$berita','$penulis','$kategori','$tanggalpost','N','')");
+ 	header('Location:../?page=berita_tabel&done');
  }
 
 
@@ -97,22 +99,22 @@ function update(){
  	if( in_array( $ext, $ekstensi ) ) {
 
         //maks ukuran gambar 500kb
- 		if( $_FILES['gambar']['size'] < 502428 ) {
+ 		// if( $_FILES['gambar']['size'] < 502428 ) {
 
- 			$filename    = "berita-" .$judul."-".time()."." .$ext;
+ 			$filename    = "berita-" .$judul."-".rand(11111,99999)."." .$ext;
  			unlink($lokasifile);
 
- 			if ( move_uploaded_file( $_FILES['gambar']['tmp_name'], $dir_foto . $filename ) ) {
+ 			if ( UploadCompress($filename,'gambar',$dir_foto,30) ) {
 
  				mysql_query("UPDATE `tabel_berita` SET `judul`='$judul',`berita`='$berita',`kategori`='$kategori',`gambar`='$filename' WHERE `id_berita`='$id_berita' ");
  				header('Location:../?page=berita_tabel&up');
  			} else {
  				echo "Gagal";
  			}
- 		} else {
- 		// echo "logfoto";
- 			header('Location:../?page=berita_tabel&logfoto='.$_FILES['gambar']['size'].'');
- 		}
+ 		// } else {
+ 		// // echo "logfoto";
+ 		// 	header('Location:../?page=berita_tabel&logfoto='.$_FILES['gambar']['size'].'');
+ 		// }
  	} else {
  	// echo 'format';
  		header('Location:../?page=berita_tabel&format');
@@ -129,7 +131,8 @@ function del(){
 	$id = $_GET['id'];
 	$que = mysql_query("select * from tabel_berita WHERE id_berita = '$id' ");
 	$d = mysql_fetch_array($que);
-	$lokasifile = '../foto/'.$d['gambar'];
+	$lokasifile = '../gambar-berita/'.$d['gambar'];
+	unlink($lokasifile);
 	mysql_query("DELETE FROM `tabel_berita` WHERE `id_berita`='$id' ");
 	// echo "lihat lah";
 	header('Location:../?page=berita_tabel');

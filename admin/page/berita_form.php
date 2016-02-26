@@ -36,7 +36,8 @@ $act = "insert";
             <input type="text" class="form-control" value="<?=$judul?>" name="judul" placeholder="Judul Berita" data-toggle="tooltip" data-placement="bottom" title="Judul" required>
           </div>
           <div class="form-group">      
-            <select name="kategori" class="form-control">              
+            <select name="kategori" class="form-control" required>
+            <option value="">Pilih Kategori</option>
               <?php $que_kategori = mysql_query("select * from tabel_kategori");
                 while($k = mysql_fetch_array($que_kategori)){
                ?>
@@ -45,7 +46,7 @@ $act = "insert";
             </select>
           </div>
           <div class="form-group">
-            <textarea id="editor1" name="berita" rows="10" cols="80"><?=$berita?>                          
+            <textarea required id="editor1" name="berita" rows="10" cols="80"><?=$berita?>                          
             </textarea>     
           </div>
           

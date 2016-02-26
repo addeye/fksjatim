@@ -15,7 +15,7 @@ $judul_foto = "";
 $foto = "";
 $deskripsi = "";
 $act = "insert";
-}
+}   
 
   ?>
 <section class="content">
@@ -47,12 +47,12 @@ $act = "insert";
           </div>                
           <div class="form-group">
             
-            <img src="images/<?=$foto?>" class="img-responsive img-thumbnail">
+            <img width="200" src="images/<?=$foto?>" class="img-responsive img-thumbnail">
             <input type="file" name="foto" id="exampleInputFile">
             <p class="help-block">*kosongkan jika tidak perlu/diganti</p>
           </div>
           <div class="form-group">
-            <textarea name="deskripsi" rows="10" placeholder="Deskripsi Foto" cols="80"><?=$deskripsi?></textarea>     
+            <textarea class="form-control" name="deskripsi" rows="10" placeholder="Deskripsi Foto" cols="80"><?=$deskripsi?></textarea>     
           </div>    
         </div><!-- /.box-body -->
 
