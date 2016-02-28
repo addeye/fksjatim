@@ -1506,7 +1506,7 @@ div[data-dimension] {
   float: left;
   display: inline;
   width: 100%;
-  background-color: #f6f6f6;
+  background-color: #ddd;
   padding: 60px 0;
 }
 .contact_form{

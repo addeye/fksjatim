@@ -19,38 +19,53 @@
    <div class="col-md-2"></div>
    <div class="col-lg-8 col-md-8 col-sm-8">
      <div class="contact_form wow fadeInLeft">
-      <form class="submitphoto_form" method="post" action="page/submit_data.php">
+      <form class="submitphoto_form" method="post" action="page/submit_data.php" enctype="multipart/form-data">
         <div class="form-group">
-          <div class="col-md-3"><label>Nama Koperasi</label></div>
+          <div class="col-md-3">          
+          <label>Nama Koperasi</label></div>
           <div class="col-md-9">
           <input type="text" name="nama_koperasi" placeholder="Nama Koperasi" class="wp-form-control form-control wpcf5">
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>No /Tgl Badan Hukum</label></div>
-          <div class="col-md-9"><input type="text" name="nbh" class="wp-form-control form-control wpcf3"></div>
+          <div class="col-md-9"><input type="text" name="badan_hukum" class="wp-form-control form-control wpcf3"></div>
         </div>
         <div class="form-group">
           <div class="col-md-12"><label>Alamat</label></div>          
-        </div>
+        </div>        
         <div class="form-group">
           <div class="col-md-1"></div>
-          <div class="col-md-2">Jalan</div>
-          <div class="col-md-9"><input type="text" name="jalan" class="wp-form-control form-control wpcf4"></div>
-        </div> 
-        <div class="form-group">
-          <div class="col-md-1"></div>
-          <div class="col-md-2">Kel/Desa</div>
-          <div class="col-md-9"><input type="text" name="kelurahan" class="wp-form-control form-control wpcf3"></div>
+          <div class="col-md-2">Kab/Kota</div>
+          <div class="col-md-9"><select id="kab" onchange="kecById(this.value)" name="kabupaten" class="wp-form-control form-control wpcf3 wpcf7-text">
+          <option value="">Kabupaten/Kota</option>
+            <?php 
+            $quekab = mysql_query("SELECT * FROM kabupaten 
+WHERE id_prov=35");
+            while ($kab = mysql_fetch_array($quekab)) {
+            ?>
+            <option value="<?=$kab['id_kab']?>"><?=$kab['nama_kab']?></option>
+            <?php } ?>
+          </select></div>          
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Kec</div>
-          <div class="col-md-9"><input type="text" name="kecamatan" class="wp-form-control form-control wpcf3"></div>
+          <div class="col-md-9"><select id="kec" name="kecamatan" onchange="kelById(this.value)" class="wp-form-control form-control wpcf3 wpcf7-text">
+          <option value="">Kecamatan</option>            
+          </select></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
-          <div class="col-md-2">Kab/Kota</div>
-          <div class="col-md-9"><input type="text" name="kabupaten" class="wp-form-control form-control wpcf3"></div>
+          <div class="col-md-2">Kel/Desa</div>
+          <div class="col-md-9"><select id="kel" name="kelurahan" class="wp-form-control form-control wpcf3 wpcf7-text">
+          <option value="">Kelurahan</option>            
+          </select></div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-1"></div>
+          <div class="col-md-2">Jalan</div>
+          <div class="col-md-9">
+          <textarea class="wp-form-control form-control wpcf4" name="jalan"></textarea>          
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>No Telepon</label></div>
@@ -102,14 +117,14 @@
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>Jumlah Anggota</label></div>
-          <div class="col-md-4"> <input type="text" name="jml_angg_L" class="wp-form-control form-control wpcf1"> Laki</div>
-          <div class="col-md-4"><input type="text" name="jml_angg_P" class="wp-form-control form-control wpcf1"> Perempuan</div> 
+          <div class="col-md-4 jml"> <input type="text" name="jml_angg_L" class="angka wp-form-control form-control wpcf1 angka"> Laki</div>
+          <div class="col-md-4 jml"><input type="text" name="jml_angg_P" class="angka wp-form-control form-control wpcf1 angka"> Perempuan</div> 
           <div class="col-md-1"></div>         
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>Jumlah Calon Anggota</label></div>
-          <div class="col-md-4">Laki <input type="text" name="jml_cangg_L" class="wp-form-control form-control wpcf1"></div>
-          <div class="col-md-4">Perempuan <input type="text" name="jml_cangg_P" class="wp-form-control form-control wpcf1"></div>
+          <div class="col-md-4 jml">Laki <input type="text" name="jml_cangg_L" class="wp-form-control form-control wpcf1 angka"></div>
+          <div class="col-md-4 jml">Perempuan <input type="text" name="jml_cangg_P" class="wp-form-control form-control wpcf1 angka"></div>
           <div class="col-md-1"></div>
         </div>
 
@@ -120,11 +135,11 @@
 
         <div class="form-group">
           <div class="col-md-3"><label>Karyawan</label></div>
-          <div class="col-md-9">Orang <input type="text" name="karyawan" class="wp-form-control form-control wpcf1"></div>                
+          <div class="col-md-9 jml">Orang <input type="text" name="jml_karyawan" class="wp-form-control form-control wpcf1 angka"></div>                
         </div>
         <div class="form-group">
           <div class="col-md-3"><label>Keuangan</label></div>
-          <div class="col-md-9"><select class="wp-form-control form-control wpcf7-text">
+          <div class="col-md-9"><select name="thn_keuangan" class="wp-form-control wpcf3 form-control wpcf7-text">
           <option value="">Tahun Anggaran</option>
             <option value="2014">2014</option>
             <option value="2015">2015</option>
@@ -135,35 +150,44 @@
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Simpanan Diterima</div>
-          <div class="col-md-9"><input type="text" name="simpan_diterima" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="simpan_diterima" class="wp-form-control wpcf3 form-control rupiah">          
+          </div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Modal Pinjaman</div>
-          <div class="col-md-9"><input type="text" name="modal_pinjaman" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="modal_pinjaman" class="wp-form-control wpcf3 form-control rupiah"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Modal Sendiri</div>
-          <div class="col-md-9"><input type="text" name="modal_sendiri" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="modal_sendiri" class="wp-form-control wpcf3 form-control rupiah"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Modal Penyertaan</div>
-          <div class="col-md-9"><input type="text" name="modal_penyertaan" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="modal_penyertaan" class="wp-form-control wpcf3 form-control rupiah"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Total Asset</div>
-          <div class="col-md-9"><input type="text" name="total_aset" class="wp-form-control form-control"></div>
+          <div class="col-md-9"><input type="text" name="total_aset" class="wp-form-control wpcf3 form-control rupiah"></div>
         </div>
         <div class="form-group">
           <div class="col-md-1"></div>
           <div class="col-md-2">Pembiayaan Diberikan</div>
-          <div class="col-md-9"><input type="text" name="biaya_diberikan" class="wp-form-control form-control "></div>
+          <div class="col-md-9"><input type="text" name="biaya_diberikan" class="wp-form-control wpcf3 form-control rupiah">
+          </div>
         </div>
-
-        <input type="submit" name="send" value="Submit" class="wpcf7-submit form-control">
+        <div class="form-group">
+          <div class="col-md-3"><label>Gambar Koperasi</label></div>
+          <div class="col-md-9"><input type="file" name="gambar_koperasi" class="wp-form-control wpcf5 form-control"></div>
+        </div>
+        <div class="form-gorup">        
+        <div class="col-md-3"></div>
+        <div class="col-md-9"><input type="submit" name="send" value="Submit" class="btn btn-primary"></div>  
+        </div>
+        
       </form>
     </div>
   </div>

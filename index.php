@@ -225,7 +225,44 @@ include "admin/function/function.php";
     Template Design By WpFreeware Team.
     Author URI : http://www.wpfreeware.com/
     ====================================================-->
+    <script type="text/javascript" src="js/jquery.maskMoney.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('#angka1').maskMoney();
+      $('#angka2').maskMoney({prefix:'US$'});
+      $('.rupiah').maskMoney({prefix:'Rp. ', thousands:'.', decimal:',', precision:0});
+      $('#angka4').maskMoney();
+    });
+    </script>
+    <script type="text/javascript">
+    
+      function kecById(id){
+         $.get('help/kecamatanByIdKab.php',{id_kab : id}, function(response){
+          $('#kec').html(response);
+        })
+      }
+      function kelById(id){
+         $.get('help/kelurahanByIdKec.php',{id_kec : id}, function(response){
+          $('#kel').html(response);
+        })
+      }
 
+//       function convertToRupiah(angka){
+//     var rupiah = '';
+//     var angkarev = angka.toString().split('').reverse().join('');
+//     for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
+//     return rupiah.split('',rupiah.length-1).reverse().join('');
+// }
+
+// function rupiah(){
+//     var nominal= document.getElementById("nominal").value;
+//     var rupiah = convertToRupiah(nominal);
+//     document.getElementById("nominal").value = rupiah;
+// }
+$(function() {
+  $('.jml').on('keydown', '.angka', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+})
+    </script>
 
   </body>
 </html>
