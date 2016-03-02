@@ -59,7 +59,7 @@ if(isset($_GET['kategori'])) { $que_kategori = mysql_query("SELECT * from tabel_
                   </div>
                   <div class="blog_summary"><?=substr($b['berita'], 0,200)?>....</p></div>
                   <!-- <p class="blog_summary"> -->
-                  <a class="blog_readmore" href="blog-single.html">Read More</a>
+                  <a class="blog_readmore" href="index.php?page=berita-detail&id=<?=$b['id_berita']?>">Read More</a>
                 </div>
               </div>
             </div>

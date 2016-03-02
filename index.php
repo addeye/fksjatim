@@ -82,7 +82,7 @@ include "admin/function/function.php";
               <!-- TEXT BASED LOGO -->
               <!-- <a class="navbar-brand" href="index.php">Website Portal <span>Sekolah</span> </a>               -->
               <!-- IMG BASED LOGO  -->
-               <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>             
+               <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="logo"></a>             
                      
             </div>
             <div id="navbar" class="navbar-collapse collapse">

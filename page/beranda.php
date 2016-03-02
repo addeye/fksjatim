@@ -44,7 +44,7 @@ if (!isset ($_GET['hal'])) $_GET['hal']=1;
       <h2 class="titile">Berita Terkini</h2>
         <div class="courseArchive_content">
           <!-- start blog archive  -->
-          <div class="row">
+          <div class="row">          
             <?php
             $sql = "SELECT b.*,p.nama_pengguna,k.nama_kategori FROM tabel_berita b LEFT JOIN tabel_pengguna p on b.penulis=p.id_pengguna LEFT JOIN tabel_kategori k on b.kategori=k.id_kategori WHERE b.headline!='Y' ";
             $jml=mysql_query($sql);

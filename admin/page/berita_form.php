@@ -25,7 +25,7 @@ $act = "insert";
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">TAMBAH BERITA SEKOLAH</h3>
+          <h3 class="box-title">TAMBAH BERITA</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         <form role="form" action="page/berita_act.php" method="post" enctype="multipart/form-data">
