@@ -53,8 +53,8 @@ if (isset($_POST['send'])) {
                   <div class="contact_form wow fadeInLeft">
                   <h3>Tinggalkan Komentar Baru</h3>
               <form class="submitphoto_form" method="post" action="">
-                <input type="text" name="nama" required class="wp-form-control wpcf7-text" placeholder="Nama Anda">             
-                <textarea name="komentar" required class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="Apa komentar anda ? "></textarea>
+                <input type="text" name="nama" required class="wp-form-control form-control" placeholder="Nama Anda">             
+                <textarea name="komentar" required class="wp-form-control form-control" cols="30" rows="10" placeholder="Apa komentar anda ? "></textarea>
                 <input type="submit" name="send" value="Submit" class="wpcf7-submit">
               </form>
            </div>

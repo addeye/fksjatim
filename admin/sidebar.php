@@ -59,7 +59,7 @@
                 <li><a href="?page=galeri_tabel"><i class="fa fa-angle-double-right"></i> Galeri</a></li>
                 <li><a href="?page=komentar_tabel"><i class="fa fa-angle-double-right"></i> Komentar</a></li>
                 <li><a href="?page=download_tabel"><i class="fa fa-angle-double-right"></i> Download</a></li>
-                <li><a href="?page=download_tabel"><i class="fa fa-angle-double-right"></i> Keanggotaan</a></li>
+                <li><a href="?page=keanggotaan_tabel"><i class="fa fa-angle-double-right"></i> Keanggotaan</a></li>
             </ul>
         </li>
         <?php if($_SESSION['level']==1) { ?>
